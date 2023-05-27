@@ -8,13 +8,25 @@ La letra "a" es convertida para "ai"
 La letra "o" es convertida para "ober"
 La letra "u" es convertida para "ufat"*/
 
+function validarTexto(){
+    let textoEscrito = document.querySelector(".text-area").value;
+    let validador = textoEscrito.match(/^[a-z]*$/);
+
+    if(!validador || validador === 0) {
+        alert("Solo son permitidas letras minúsculas y sin acentos")
+        location.reload();
+        return true;
+    }
+}
+
 function btnEncriptar() {
+    if(!validarTexto()) {
     const textoEncriptdo = encriptar(textareas[0].value);
     mensaje.value = textoEncriptdo;
     textareas[0].value = '';
     mensaje.style.backgroundImage = "none";
     boton[0].style.display = "block";
-   
+    }
 }
 
 function encriptar(stringEncriptado) {
@@ -64,8 +76,7 @@ function btnCopiar() {
     mensaje.select();
     document.execCommand("copy");
     mensaje.value = '';
-    mensaje.style.backgroundImage = "url('/imagenes/Muñeco.png')";
-
+    mensaje.style.backgroundImage = 'url(imagenes/Muñeco.png)';
 }
 
 
