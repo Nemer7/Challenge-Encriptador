@@ -10,7 +10,7 @@ La letra "u" es convertida para "ufat"*/
 
 function validarTexto(){
     let textoEscrito = document.querySelector(".text-area").value;
-    let validador = textoEscrito.match(/^[a-z]*$/);
+    let validador = textoEscrito.match(/^[a-zA-Z\s]+$/);
 
     if(!validador || validador === 0) {
         alert("Solo son permitidas letras minúsculas y sin acentos")
